@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" fill="none">
+  <defs>
+    <radialGradient id="juteBg" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#332414" stop-opacity="0.9"/>
+      <stop offset="65%" stop-color="#191108" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0a0703" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="goldJute" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="50%" stop-color="#d4a359"/>
+      <stop offset="100%" stop-color="#92400e"/>
+    </linearGradient>
+    <pattern id="juteWeave" width="20" height="20" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="10" x2="20" y2="10" stroke="rgba(212,163,89,0.08)" stroke-width="2"/>
+      <line x1="10" y1="0" x2="10" y2="20" stroke="rgba(212,163,89,0.08)" stroke-width="2"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="750" fill="url(#juteBg)"/>
+  <rect width="1200" height="750" fill="url(#juteWeave)"/>
+
+  <!-- Centered Jute Craft & Digital Platform Showcase -->
+  <g transform="translate(600, 310)">
+    <!-- Natural Fiber Interlocking Circle Motif -->
+    <circle cx="0" cy="0" r="120" stroke="url(#goldJute)" stroke-width="2.5" fill="#1f140a"/>
+    <circle cx="0" cy="0" r="105" stroke="rgba(212,163,89,0.25)" stroke-width="1" stroke-dasharray="3 6"/>
+
+    <!-- Woven Natural Fiber Icon / Spindle Motif -->
+    <path d="M-40 -40 C -10 -70, 10 -70, 40 -40 C 70 -10, 70 10, 40 40 C 10 70, -10 70, -40 40 C -70 10, -70 -10, -40 -40 Z" fill="none" stroke="url(#goldJute)" stroke-width="2"/>
+    <circle cx="0" cy="0" r="22" fill="url(#goldJute)"/>
+    <circle cx="0" cy="0" r="8" fill="#1f140a"/>
+  </g>
+
+  <!-- Brand Typography -->
+  <text x="600" y="500" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="28" letter-spacing="8" fill="#ffffff">
+    JUTE FOR GOOD
+  </text>
+  <text x="600" y="535" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="13" letter-spacing="4" fill="#d4a359">
+    DIVERSIFIED NATURAL JUTE EXPORTS &amp; DIGITAL PLATFORM
+  </text>
+
+  <!-- Tags -->
+  <g transform="translate(600, 610)">
+    <rect x="-240" y="-18" width="130" height="36" rx="18" fill="#291a0c" stroke="rgba(212,163,89,0.3)"/>
+    <text x="-175" y="5" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#fde68a">B2B EXPORTS</text>
+
+    <rect x="-85" y="-18" width="170" height="36" rx="18" fill="#291a0c" stroke="rgba(212,163,89,0.3)"/>
+    <text x="0" y="5" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#d4a359">DIGITAL CATALOG</text>
+
+    <rect x="110" y="-18" width="130" height="36" rx="18" fill="#291a0c" stroke="rgba(212,163,89,0.3)"/>
+    <text x="175" y="5" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#fde68a">ECO-FRIENDLY</text>
+  </g>
+</svg>

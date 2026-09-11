@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" fill="none">
+  <defs>
+    <radialGradient id="uixGlow" cx="40%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#192850" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#0a1024" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#04060e" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="neonCyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1be2eb"/>
+      <stop offset="100%" stop-color="#507af4"/>
+    </linearGradient>
+    <linearGradient id="purpleNeon" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#891ffb"/>
+      <stop offset="100%" stop-color="#507af4"/>
+    </linearGradient>
+    <pattern id="dotGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="1" fill="rgba(80,122,244,0.15)"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="750" fill="url(#uixGlow)"/>
+  <rect width="1200" height="750" fill="url(#dotGrid)"/>
+
+  <!-- UI Window Mockup with Motion Curves & Timeline -->
+  <g transform="translate(180, 100)">
+    <!-- Main UI Frame -->
+    <rect width="840" height="460" rx="16" fill="#0d142b" stroke="rgba(80,122,244,0.3)" stroke-width="1.5"/>
+
+    <!-- Window Titlebar -->
+    <rect width="840" height="48" rx="16" fill="#131c3a"/>
+    <circle cx="30" cy="24" r="5.5" fill="#ff5f56"/>
+    <circle cx="50" cy="24" r="5.5" fill="#ffbd2e"/>
+    <circle cx="70" cy="24" r="5.5" fill="#27c93f"/>
+    <text x="420" y="30" text-anchor="middle" font-family="monospace" font-size="12" fill="#507af4" letter-spacing="2">ANIMATEUIX // MOTION_CURVE_EDITOR</text>
+
+    <!-- Velocity / Bezier Curve Graphic -->
+    <g transform="translate(60, 80)">
+      <!-- Curve Grid -->
+      <line x1="0" y1="220" x2="720" y2="220" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <line x1="0" y1="110" x2="720" y2="110" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4 4"/>
+      <line x1="0" y1="0" x2="720" y2="0" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+      <!-- Bezier Curve (Elastic / Spring ease) -->
+      <path d="M0 220 C 180 220, 220 -30, 420 40 C 540 85, 620 0, 720 0" fill="none" stroke="url(#neonCyan)" stroke-width="4"/>
+
+      <!-- Handle lines & keyframe nodes -->
+      <line x1="0" y1="220" x2="180" y2="220" stroke="#1be2eb" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <circle cx="180" cy="220" r="6" fill="#1be2eb"/>
+
+      <line x1="420" y1="40" x2="360" y2="-10" stroke="#891ffb" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <circle cx="420" cy="40" r="7" fill="#891ffb" stroke="#ffffff" stroke-width="2"/>
+
+      <circle cx="720" cy="0" r="7" fill="#507af4" stroke="#ffffff" stroke-width="2"/>
+
+      <!-- Curve label -->
+      <rect x="230" y="15" width="130" height="26" rx="6" fill="#131e3d" stroke="#507af4"/>
+      <text x="295" y="32" text-anchor="middle" font-family="monospace" font-size="10" font-weight="700" fill="#1be2eb">ease(0.22, 1, 0.36, 1)</text>
+    </g>
+
+    <!-- Bottom Timeline Track -->
+    <g transform="translate(60, 370)">
+      <rect width="720" height="50" rx="8" fill="#090e21" stroke="rgba(80,122,244,0.2)"/>
+      <!-- Playhead -->
+      <line x1="280" y1="0" x2="280" y2="50" stroke="#1be2eb" stroke-width="2"/>
+      <polygon points="274,0 286,0 280,10" fill="#1be2eb"/>
+      <!-- Keyframe markers -->
+      <polygon points="120,25 125,20 130,25 125,30" fill="#891ffb"/>
+      <polygon points="280,25 285,20 290,25 285,30" fill="#1be2eb"/>
+      <polygon points="500,25 505,20 510,25 505,30" fill="#507af4"/>
+      <polygon points="680,25 685,20 690,25 685,30" fill="#891ffb"/>
+    </g>
+  </g>
+
+  <!-- Bottom Brand & Disciplines -->
+  <text x="600" y="630" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="28" letter-spacing="8" fill="#ffffff">
+    ANIMATEUIX
+  </text>
+  <text x="600" y="662" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="13" letter-spacing="4" fill="#1be2eb">
+    MOTION IDENTITY &amp; INTERACTIVE LOTTIE PLATFORM
+  </text>
+</svg>

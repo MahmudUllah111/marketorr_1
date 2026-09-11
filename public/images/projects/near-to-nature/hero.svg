@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" fill="none">
+  <defs>
+    <radialGradient id="natureBg" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#143825" stop-opacity="0.85"/>
+      <stop offset="65%" stop-color="#091b11" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#040d08" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6ee7b7"/>
+      <stop offset="60%" stop-color="#2eb872"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="earthGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="750" fill="url(#natureBg)"/>
+
+  <!-- Subtle organic rings -->
+  <circle cx="600" cy="320" r="280" stroke="#2eb872" stroke-width="1" stroke-dasharray="3 9" opacity="0.2"/>
+  <circle cx="600" cy="320" r="190" stroke="#6ee7b7" stroke-width="1" opacity="0.15"/>
+
+  <!-- Centered Botanical Leaf Emblem -->
+  <g transform="translate(600, 310)">
+    <!-- Outer Circular Seal -->
+    <circle cx="0" cy="0" r="120" fill="#0c2317" stroke="url(#leafGrad)" stroke-width="2"/>
+    <circle cx="0" cy="0" r="108" fill="none" stroke="rgba(110,231,183,0.3)" stroke-width="1" stroke-dasharray="2 4"/>
+
+    <!-- Stylized Sprouting Leaf Pair -->
+    <!-- Left Leaf -->
+    <path d="M0 60 C -60 30, -70 -40, 0 -70 C -10 -20, -15 30, 0 60 Z" fill="url(#leafGrad)"/>
+    <!-- Right Leaf -->
+    <path d="M0 60 C 50 35, 60 -30, 0 -55 C 10 -15, 12 25, 0 60 Z" fill="#6ee7b7" opacity="0.85"/>
+    <!-- Center Stem -->
+    <path d="M0 60 L0 -70" stroke="#091b11" stroke-width="2"/>
+  </g>
+
+  <!-- Brand Typography -->
+  <text x="600" y="500" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="28" letter-spacing="8" fill="#ffffff">
+    NEAR TO NATURE
+  </text>
+  <text x="600" y="535" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="13" letter-spacing="4" fill="#6ee7b7">
+    SUSTAINABLE AGRICULTURE &amp; ORGANIC PACKAGING
+  </text>
+
+  <!-- Feature badges -->
+  <g transform="translate(600, 610)">
+    <rect x="-240" y="-18" width="130" height="36" rx="18" fill="#0e2a1c" stroke="rgba(46,184,114,0.3)"/>
+    <text x="-175" y="5" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#6ee7b7">ORGANIC</text>
+
+    <rect x="-85" y="-18" width="170" height="36" rx="18" fill="#0e2a1c" stroke="rgba(46,184,114,0.3)"/>
+    <text x="0" y="5" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#a7f3d0">KRAFT PACKAGING</text>
+
+    <rect x="110" y="-18" width="130" height="36" rx="18" fill="#0e2a1c" stroke="rgba(46,184,114,0.3)"/>
+    <text x="175" y="5" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#6ee7b7">SEAL SYSTEM</text>
+  </g>
+</svg>

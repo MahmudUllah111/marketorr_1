@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" fill="none">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#3b1054" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#140721" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#09030e" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5d77f"/>
+      <stop offset="50%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#aa7c11"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#891ffb"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="750" fill="url(#bgGlow)"/>
+  <rect width="1200" height="750" fill="url(#grid)"/>
+
+  <!-- Subtle ambient circles -->
+  <circle cx="600" cy="360" r="300" stroke="#891ffb" stroke-width="1" stroke-dasharray="4 8" opacity="0.25"/>
+  <circle cx="600" cy="360" r="220" stroke="#d4af37" stroke-width="1" opacity="0.15"/>
+
+  <!-- Centered AF Monogram Emblem -->
+  <g transform="translate(600, 310)">
+    <!-- Monogram Shield Outline -->
+    <path d="M0 -140 L110 -75 L110 55 L0 125 L-110 55 L-110 -75 Z" fill="#1b0a2d" stroke="url(#goldGrad)" stroke-width="2.5" opacity="0.9"/>
+    <path d="M0 -125 L95 -67 L95 48 L0 110 L-95 48 L-95 -67 Z" fill="none" stroke="#891ffb" stroke-width="1" opacity="0.4"/>
+
+    <!-- Intertwined AF Letterform -->
+    <!-- Letter A -->
+    <path d="M-40 45 L0 -65 L40 45 L20 45 L0 -15 L-20 45 Z" fill="url(#goldGrad)"/>
+    <!-- Letter F crossbar & interplay -->
+    <path d="M-10 -15 L35 -15 L35 0 L-2 0 Z" fill="url(#purpleGrad)"/>
+    <path d="M-5 -45 L42 -45 L42 -32 L0 -32 Z" fill="url(#purpleGrad)"/>
+  </g>
+
+  <!-- Brand Typography -->
+  <text x="600" y="500" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="28" letter-spacing="8" fill="#ffffff">
+    ALARABI FASHION
+  </text>
+  <text x="600" y="535" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="13" letter-spacing="4" fill="#d4af37">
+    KNITWEAR EXPORT &amp; APPAREL TRADING
+  </text>
+
+  <!-- Tags / Deliverable pills -->
+  <g transform="translate(600, 610)">
+    <rect x="-240" y="-18" width="130" height="36" rx="18" fill="#240c3d" stroke="rgba(212,175,55,0.3)"/>
+    <text x="-175" y="5" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#f5d77f">MONOGRAM</text>
+
+    <rect x="-85" y="-18" width="170" height="36" rx="18" fill="#240c3d" stroke="rgba(137,31,251,0.4)"/>
+    <text x="0" y="5" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#c084fc">BRAND GUIDELINES</text>
+
+    <rect x="110" y="-18" width="130" height="36" rx="18" fill="#240c3d" stroke="rgba(212,175,55,0.3)"/>
+    <text x="175" y="5" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#f5d77f">PACKAGING</text>
+  </g>
+</svg>

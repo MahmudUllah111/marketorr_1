@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" fill="none">
+  <defs>
+    <radialGradient id="vtBg" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#2a0845" stop-opacity="0.85"/>
+      <stop offset="65%" stop-color="#12041d" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#06010a" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="vtGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#891ffb"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="750" fill="url(#vtBg)"/>
+
+  <!-- Centered VT Monogram Geometric Mark -->
+  <g transform="translate(600, 310)">
+    <polygon points="0,-110 95,-55 95,55 0,110 -95,55 -95,-55" fill="#180628" stroke="url(#vtGrad)" stroke-width="2"/>
+    <path d="M-40 -35 L0 45 L40 -35 L20 -35 L0 10 L-20 -35 Z" fill="url(#vtGrad)"/>
+    <path d="M-30 -45 L30 -45 L30 -35 L-30 -35 Z" fill="#ffffff" opacity="0.8"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="600" y="500" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="28" letter-spacing="8" fill="#ffffff">
+    VIRGIN TREND LTD.
+  </text>
+  <text x="600" y="535" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="13" letter-spacing="4" fill="#c084fc">
+    APPAREL SOURCING &amp; CORPORATE BRAND IDENTITY
+  </text>
+</svg>
