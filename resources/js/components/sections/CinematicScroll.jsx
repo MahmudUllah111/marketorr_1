@@ -15,8 +15,8 @@ const CHAPTERS = [
         visual: {
             title: 'Alarabi Fashion · Identity Specimen',
             tags: ['Brand Positioning', 'Monogram System', 'Typography'],
-            image: '/images/projects/alarabi/hero.svg',
-            caption: 'Stage 01: Core geometry and monogram formulation',
+            image: '/images/projects/alarabi/real-showcase.webp',
+            caption: 'Stage 01: Authentic dimensional monogram on violet silk drapery',
         },
     },
     {
@@ -29,10 +29,10 @@ const CHAPTERS = [
             'We transform brand guidelines into high-performance digital products — mapping intuitive user journeys, engineering responsive design systems, and crafting fluid micro-interactions.',
         accent: '#507AF4',
         visual: {
-            title: 'City Online & AnimateUIX · Interface Systems',
-            tags: ['Atomic Design Tokens', 'SaaS Workflows', 'Mobile Flow'],
-            image: '/images/projects/animateuix/hero.svg',
-            caption: 'Stage 02: Interactive design tokens and kinetic curves',
+            title: 'AnimateUIX · Kinetic Interface Systems',
+            tags: ['Atomic Design Tokens', 'Motion Physics', 'Lottie Curves'],
+            image: '/images/projects/animateuix/real-showcase.webp',
+            caption: 'Stage 02: 3D fluid wave & kinetic easing curve architecture',
         },
     },
     {
@@ -45,10 +45,10 @@ const CHAPTERS = [
             'We deploy rock-solid full-stack web platforms and customer portals that convert curiosity into demand, elevating brand equity and delivering tangible business results.',
         accent: '#1BE2EB',
         visual: {
-            title: 'City Online Limited · Live Platform',
-            tags: ['Full-Stack Deployment', 'High Performance', 'Scalable APIs'],
-            image: '/images/projects/city-online/hero.svg',
-            caption: 'Stage 03: Nationwide live broadband portal & web platform',
+            title: 'Jute for Good · Live Export Platform',
+            tags: ['Full-Stack Deployment', 'B2B Catalog Engine', 'Global Export'],
+            image: '/images/projects/jute-for-good/real-showcase.webp',
+            caption: 'Stage 03: Production web platform on floating MacBook Pro',
         },
     },
 ];

@@ -51,9 +51,9 @@ export default function Contact() {
     return (
         <section id="contact" className="relative overflow-hidden bg-[var(--bg)] section-pad">
             <div className="container-x relative">
-                <SectionLabel index="04" name="CONTACT" />
+                <SectionLabel index="01" name="CONTACT" />
                 <RevealText
-                    as="h2"
+                    as="h1"
                     className="display-lg mt-8 uppercase text-[var(--ink-strong)]"
                     lines={['Have a project?', "Let's make", 'it matter.']}
                 />

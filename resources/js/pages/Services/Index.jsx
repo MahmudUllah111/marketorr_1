@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Head, Link } from '@inertiajs/react';
-import { SectionLabel, Tag } from '../../components/ui/primitives';
+import { SectionLabel } from '../../components/ui/primitives';
 import RevealText from '../../components/motion/RevealText';
 import ConversionCTA from '../../components/sections/ConversionCTA';
 import { SERVICES } from '../../data/services';
@@ -24,15 +24,15 @@ export default function ServicesIndex() {
             {/* Hero Section */}
             <section className="bg-[var(--bg)] pt-12 pb-20 sm:pt-16 sm:pb-28">
                 <div className="container-x">
-                    <SectionLabel index="02" name="SERVICES" />
+                    <SectionLabel index="01" name="SERVICES" />
                     
-                    <div className="mt-8 max-w-5xl">
+                    <div className="mt-8">
                         <RevealText
                             as="h1"
                             className="display-xl uppercase text-[var(--ink-strong)]"
                             lines={['Branding,', 'UI/UX', '& Development.']}
                         />
-                        <p className="mt-6 font-serif text-2xl italic text-[var(--ink-faint)] sm:text-3xl">
+                        <p className="mt-6 max-w-4xl font-serif text-2xl italic text-[var(--ink-faint)] sm:text-3xl">
                             Strategic identity systems, intuitive digital products, and robust web engineering.
                         </p>
                         <p className="mt-8 max-w-3xl text-lg leading-relaxed text-[var(--mute)] sm:text-xl">
@@ -42,105 +42,125 @@ export default function ServicesIndex() {
                 </div>
             </section>
 
-            {/* Three Core Disciplines Deep Dives */}
+            {/* Three Core Disciplines — alternating editorial rows, hairline-separated */}
             <section className="bg-[var(--surface)] py-24 sm:py-32">
-                <div className="container-x space-y-20 sm:space-y-32">
-                    {SERVICES.map((s) => {
+                <div className="container-x">
+                    {SERVICES.map((s, i) => {
                         const grad = s.accentTo
                             ? `linear-gradient(90deg, ${s.accent}, ${s.accentTo})`
                             : s.accent;
                         const proof = serviceProofs[s.slug];
+                        const flipped = i % 2 === 1;
 
                         return (
                             <article
                                 key={s.slug}
-                                className="rounded-3xl border border-[var(--line)] bg-[var(--bg)] p-8 sm:p-14 shadow-xl"
+                                className="border-t border-[var(--line)] py-16 first:border-t-0 first:pt-0 sm:py-24"
                             >
-                                <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-                                    {/* Left Discipline Information */}
-                                    <div className="lg:col-span-6 flex flex-col justify-between">
-                                        <div>
-                                            <div className="flex items-center gap-4">
-                                                <span className="font-display text-base font-extrabold" style={{ color: s.accent }}>
-                                                    {s.index} //
-                                                </span>
-                                                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--ink-faint)]">
-                                                    Discipline
-                                                </span>
-                                            </div>
-                                            <h2 className="mt-3 font-display text-3xl font-extrabold uppercase text-[var(--ink-strong)] sm:text-4xl">
-                                                {s.name}
-                                            </h2>
-                                            <p className="mt-2 font-serif text-lg italic text-[var(--ink-faint)]">
-                                                {s.headline}
-                                            </p>
-                                            <p className="mt-6 text-sm leading-relaxed text-[var(--mute)] sm:text-base">
-                                                {s.description}
-                                            </p>
-
-                                            {/* Capabilities Tags */}
-                                            <div className="mt-8">
-                                                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--ink-faint)]">
-                                                    Key Capabilities
-                                                </p>
-                                                <div className="mt-3 flex flex-wrap gap-2">
-                                                    {s.capabilities.map((c) => (
-                                                        <Tag key={c} accent={s.accent}>
-                                                            {c}
-                                                        </Tag>
-                                                    ))}
-                                                </div>
-                                            </div>
+                                <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
+                                    <div className={`lg:col-span-6 ${flipped ? 'lg:order-2' : ''}`}>
+                                        <div className="flex items-center gap-4">
+                                            <span
+                                                className="font-display text-base font-extrabold tabular-nums"
+                                                style={{ color: s.accent }}
+                                            >
+                                                {s.index}
+                                            </span>
+                                            <span className="h-px w-10 bg-[var(--line)]" aria-hidden />
+                                            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--ink-faint)]">
+                                                Discipline
+                                            </span>
                                         </div>
 
-                                        {/* Action Button */}
-                                        <div className="mt-10 flex items-center gap-4 border-t border-[var(--line-soft)] pt-6">
+                                        <h2 className="mt-5 font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-[var(--ink-strong)] sm:text-5xl">
+                                            {s.name}
+                                        </h2>
+                                        <p className="mt-3 font-serif text-xl italic text-[var(--ink-faint)]">
+                                            {s.headline}
+                                        </p>
+                                        <p className="mt-6 max-w-xl text-base leading-relaxed text-[var(--mute)]">
+                                            {s.description}
+                                        </p>
+
+                                        <div className="mt-8">
+                                            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--ink-faint)]">
+                                                Key Capabilities
+                                            </p>
+                                            <ul className="mt-4 grid gap-x-8 gap-y-2.5 sm:grid-cols-2">
+                                                {s.capabilities.map((c) => (
+                                                    <li
+                                                        key={c}
+                                                        className="flex items-start gap-2.5 text-[13px] leading-relaxed text-[var(--ink)]"
+                                                    >
+                                                        <span
+                                                            className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full"
+                                                            style={{ background: s.accent }}
+                                                            aria-hidden
+                                                        />
+                                                        {c}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+
+                                        <div className="mt-10">
                                             <Link
                                                 href={`/services/${s.slug}`}
                                                 data-cursor="explore"
-                                                className="btn-press inline-flex items-center gap-2 rounded-full px-7 py-3 text-[13px] font-bold uppercase tracking-[0.16em] text-white shadow-lg"
+                                                className="btn-press group inline-flex items-center gap-2 rounded-full px-7 py-3 text-[13px] font-bold uppercase tracking-[0.16em] text-white"
                                                 style={{ background: grad }}
                                             >
-                                                Explore {s.name} ↗
+                                                Explore {s.name}
+                                                <span
+                                                    aria-hidden
+                                                    className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                                                >
+                                                    ↗
+                                                </span>
                                             </Link>
                                         </div>
                                     </div>
 
-                                    {/* Right Discipline Visual Proof */}
-                                    <div className="lg:col-span-6">
+                                    {/* Proof canvas — one uninterrupted image, meta set below it */}
+                                    <div className={`lg:col-span-6 ${flipped ? 'lg:order-1' : ''}`}>
                                         {proof && (
                                             <Link
                                                 href={`/work/${proof.slug}`}
                                                 data-cursor="view"
-                                                className="group block overflow-hidden rounded-2xl border border-[var(--line)] bg-black shadow-2xl transition-transform duration-300 hover:scale-[1.01]"
+                                                className="group block"
                                             >
-                                                <div className="relative aspect-[16/10] overflow-hidden">
-                                                    <img
-                                                        src={proof.heroImage}
-                                                        alt={`${s.name} Proof — ${proof.title}`}
-                                                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                                                        loading="lazy"
-                                                    />
-                                                    <div className="absolute left-5 top-5">
-                                                        <span className="rounded-full bg-black/70 px-3.5 py-1.5 font-display text-[10px] font-bold uppercase tracking-[0.16em] text-white/90 backdrop-blur-md">
-                                                            Visual Proof · {proof.client}
-                                                        </span>
+                                                <div className="relative overflow-hidden rounded-2xl bg-black">
+                                                    <div className="relative aspect-[16/10] overflow-hidden">
+                                                        <img
+                                                            src={proof.heroImage}
+                                                            alt={`${s.name} proof — ${proof.title}`}
+                                                            className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
+                                                            loading="lazy"
+                                                        />
                                                     </div>
+                                                    <span className="absolute left-5 top-5 rounded-full bg-black/70 px-3.5 py-1.5 font-display text-[10px] font-bold uppercase tracking-[0.16em] text-white/90 backdrop-blur-md">
+                                                        {proof.client}
+                                                    </span>
                                                 </div>
-                                                <div className="p-6 bg-[var(--surface-2)]">
-                                                    <div className="flex items-center justify-between">
-                                                        <div>
-                                                            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--ink-faint)]">
-                                                                Featured Implementation
-                                                            </p>
-                                                            <h3 className="mt-1 font-display text-lg font-bold text-[var(--ink-strong)]">
-                                                                {proof.title}
-                                                            </h3>
-                                                        </div>
-                                                        <span className="text-xs font-bold text-[var(--ink-faint)] group-hover:text-[var(--ink)]">
-                                                            View Study ↗
-                                                        </span>
+
+                                                <div className="mt-5 flex items-end justify-between gap-6 border-t border-[var(--line)] pt-5">
+                                                    <div>
+                                                        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--ink-faint)]">
+                                                            Featured Implementation
+                                                        </p>
+                                                        <h3 className="mt-1.5 font-display text-xl font-bold text-[var(--ink-strong)]">
+                                                            {proof.title}
+                                                        </h3>
                                                     </div>
+                                                    <span className="flex flex-shrink-0 items-center gap-2 text-[12px] font-bold uppercase tracking-[0.14em] text-[var(--ink-faint)] transition-colors duration-300 group-hover:text-[var(--ink)]">
+                                                        View Study
+                                                        <span
+                                                            aria-hidden
+                                                            className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                                                        >
+                                                            ↗
+                                                        </span>
+                                                    </span>
                                                 </div>
                                             </Link>
                                         )}
@@ -155,9 +175,9 @@ export default function ServicesIndex() {
             {/* FAQ Section */}
             <section className="bg-[var(--bg)] py-24 sm:py-32">
                 <div className="container-x max-w-4xl">
-                    <div className="text-center">
-                        <SectionLabel index="03" name="COMMONLY ASKED" />
-                        <h2 className="display-lg mt-4 uppercase text-[var(--ink-strong)]">
+                    <div>
+                        <SectionLabel index="02" name="COMMONLY ASKED" />
+                        <h2 className="display-lg mt-6 uppercase text-[var(--ink-strong)]">
                             Frequently asked.
                         </h2>
                     </div>
@@ -172,6 +192,8 @@ export default function ServicesIndex() {
                                         onClick={() => setOpenFaq(isOpen ? null : idx)}
                                         className="flex w-full items-center justify-between text-left font-display text-lg font-bold text-[var(--ink-strong)] sm:text-xl hover:text-gradient transition-colors cursor-pointer"
                                         aria-expanded={isOpen}
+                                        aria-controls={`faq-panel-${idx}`}
+                                        id={`faq-trigger-${idx}`}
                                     >
                                         <span>{faq.question}</span>
                                         <span className="ml-4 font-mono text-xl font-normal text-[var(--ink-faint)]">
@@ -179,7 +201,12 @@ export default function ServicesIndex() {
                                         </span>
                                     </button>
                                     {isOpen && (
-                                        <p className="mt-4 text-sm leading-relaxed text-[var(--mute)] sm:text-base">
+                                        <p
+                                            id={`faq-panel-${idx}`}
+                                            role="region"
+                                            aria-labelledby={`faq-trigger-${idx}`}
+                                            className="mt-4 text-sm leading-relaxed text-[var(--mute)] sm:text-base"
+                                        >
                                             {faq.answer}
                                         </p>
                                     )}
@@ -193,7 +220,6 @@ export default function ServicesIndex() {
             {/* Conversion CTA */}
             <ConversionCTA
                 eyebrow="Commission Our Disciplines"
-                headline="Let's build what's next."
                 description="Whether you need a complete rebrand, a digital product design sprint, or modern web engineering."
             />
         </>

@@ -2,9 +2,15 @@ import { Link } from '@inertiajs/react';
 import MagneticButton from '../motion/MagneticButton';
 import { CONTACT } from '../../data/contact';
 
+/**
+ * The single closing conversion block. `headline` carries the plain opening
+ * words and `accent` the gradient-highlighted tail, so pages can set their own
+ * copy without the component guessing at where the highlight belongs.
+ */
 export default function ConversionCTA({
     eyebrow = 'Next Engagement',
-    headline = "Let's build what's next.",
+    headline = "Let's build",
+    accent = "what's next.",
     description = 'Available for select branding, product UI/UX and web engineering projects.',
 }) {
     return (
@@ -23,13 +29,13 @@ export default function ConversionCTA({
                             {eyebrow}
                         </p>
                         <h2 className="mt-4 font-display text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl md:text-6xl">
-                            {headline.includes("what's next.") ? (
+                            {headline}
+                            {accent && (
                                 <>
-                                    Let's build <br className="hidden sm:inline" />
-                                    <span className="text-gradient">what's next.</span>
+                                    {' '}
+                                    <br className="hidden sm:inline" />
+                                    <span className="text-gradient">{accent}</span>
                                 </>
-                            ) : (
-                                headline
                             )}
                         </h2>
                         <p className="mt-4 font-serif text-lg italic text-zinc-400 sm:text-xl">

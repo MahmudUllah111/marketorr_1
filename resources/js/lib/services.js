@@ -21,3 +21,19 @@ export const SERVICES = DATA_SERVICES.map((s) => ({
               ]
     ),
 }));
+
+/**
+ * Project records tag themselves with service slugs (including the legacy
+ * `web-development` spelling) for filtering. This maps those slugs to display
+ * labels so raw slugs never reach the page.
+ */
+const SERVICE_SLUG_LABELS = {
+    branding: 'Branding & Identity',
+    'ui-ux': 'UI/UX Design',
+    development: 'Development',
+    'web-development': 'Development',
+};
+
+export function serviceLabel(slug) {
+    return SERVICE_SLUG_LABELS[slug] ?? slug;
+}

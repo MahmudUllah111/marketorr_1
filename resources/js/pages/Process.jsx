@@ -6,6 +6,7 @@ import ConversionCTA from '../components/sections/ConversionCTA';
 
 export default function Process() {
     const [activePhase, setActivePhase] = useState('IDEA');
+    const [activeStep, setActiveStep] = useState(0);
 
     const steps = [
         {
@@ -94,22 +95,47 @@ export default function Process() {
         },
     ];
 
+    /**
+     * Tracks which stage is under the reading line so the sticky rail and the
+     * workflow bar stay in sync. Reads are batched into a single rAF frame to
+     * keep the scroll handler off the layout-thrashing path.
+     */
     useEffect(() => {
-        const handleScroll = () => {
-            const stepElements = steps.map((s) => document.getElementById(`step-${s.num}`));
-            const scrollPos = window.scrollY + window.innerHeight * 0.45;
+        let frame = null;
 
-            for (let i = stepElements.length - 1; i >= 0; i--) {
-                const el = stepElements[i];
-                if (el && el.offsetTop <= scrollPos) {
-                    setActivePhase(steps[i].phase);
-                    break;
+        const measure = () => {
+            frame = null;
+            const line = window.innerHeight * 0.45;
+            let current = 0;
+
+            for (let i = 0; i < steps.length; i++) {
+                const el = document.getElementById(`step-${steps[i].num}`);
+                if (el && el.getBoundingClientRect().top <= line) {
+                    current = i;
                 }
+            }
+
+            setActiveStep(current);
+            setActivePhase(steps[current].phase);
+        };
+
+        const handleScroll = () => {
+            if (frame === null) {
+                frame = window.requestAnimationFrame(measure);
             }
         };
 
+        measure();
         window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleScroll);
+            if (frame !== null) {
+                window.cancelAnimationFrame(frame);
+            }
+        };
     }, []);
 
     return (
@@ -119,7 +145,7 @@ export default function Process() {
             {/* 01 Hero Section */}
             <section className="bg-[var(--bg)] pt-12 pb-16 sm:pt-16 sm:pb-24">
                 <div className="container-x">
-                    <SectionLabel index="04" name="OPERATING SYSTEM" />
+                    <SectionLabel index="01" name="OPERATING SYSTEM" />
 
                     <div className="mt-8 max-w-5xl">
                         <RevealText
@@ -138,7 +164,7 @@ export default function Process() {
             </section>
 
             {/* 02 Sticky / Progressive Activation Motif Bar */}
-            <div className="sticky top-[72px] lg:top-[88px] z-30 border-y border-[var(--line)] bg-[var(--surface)]/90 backdrop-blur-md py-4">
+            <div className="sticky top-[64px] lg:top-[78px] z-30 border-y border-[var(--line)] bg-[var(--surface)]/90 backdrop-blur-md py-4">
                 <div className="container-x flex flex-wrap items-center justify-between gap-4">
                     <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--ink-faint)]">
                         Workflow Progression:
@@ -177,65 +203,97 @@ export default function Process() {
                 </div>
             </div>
 
-            {/* 03 Six-Stage Detailed Workflow */}
-            <section className="bg-[var(--surface)] py-20 sm:py-32">
-                <div className="container-x space-y-12 sm:space-y-16">
-                    {steps.map((s) => (
-                        <div
-                            key={s.num}
-                            id={`step-${s.num}`}
-                            className="rounded-3xl border border-[var(--line)] bg-[var(--bg)] p-8 sm:p-14 shadow-xl transition-all duration-300"
-                        >
-                            <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
-                                {/* Step number & phase badge */}
-                                <div className="lg:col-span-2">
+            {/* 03 Six-Stage Workflow — sticky stage rail beside a scrolling editorial column */}
+            <section className="bg-[var(--surface)] py-20 sm:py-28">
+                <div className="container-x grid gap-12 lg:grid-cols-12 lg:gap-16">
+                    {/* Sticky stage rail (desktop only — it has no meaning once the columns stack) */}
+                    <aside className="hidden lg:col-span-4 lg:block" aria-hidden>
+                        <div className="sticky top-[172px]">
+                            <span
+                                className="block font-display text-[9rem] font-extrabold leading-[0.8] tabular-nums transition-colors duration-500"
+                                style={{ color: steps[activeStep].accent }}
+                            >
+                                {steps[activeStep].num}
+                            </span>
+                            <p className="mt-4 font-display text-3xl font-extrabold uppercase tracking-tight text-[var(--ink-strong)] transition-opacity duration-500">
+                                {steps[activeStep].name}
+                            </p>
+                            <p className="mt-2 font-serif text-lg italic text-[var(--ink-faint)]">
+                                {steps[activeStep].subtitle}
+                            </p>
+
+                            <ol className="mt-10 space-y-px border-l border-[var(--line)]">
+                                {steps.map((s, i) => (
+                                    <li key={s.num} className="relative">
+                                        <span
+                                            className="absolute -left-px top-0 h-full w-[2px] origin-top transition-transform duration-500"
+                                            style={{
+                                                background: s.accent,
+                                                transform: `scaleY(${i <= activeStep ? 1 : 0})`,
+                                            }}
+                                        />
+                                        <span
+                                            className={`flex items-baseline gap-4 py-2.5 pl-5 font-display text-[12px] font-bold uppercase tracking-[0.18em] transition-colors duration-300 ${
+                                                i === activeStep
+                                                    ? 'text-[var(--ink-strong)]'
+                                                    : 'text-[var(--ink-faint)]'
+                                            }`}
+                                        >
+                                            <span className="tabular-nums opacity-60">{s.num}</span>
+                                            {s.name}
+                                        </span>
+                                    </li>
+                                ))}
+                            </ol>
+                        </div>
+                    </aside>
+
+                    {/* Scrolling stage column — hairline rules instead of repeated heavy cards */}
+                    <div className="lg:col-span-8">
+                        {steps.map((s, i) => (
+                            <article
+                                key={s.num}
+                                id={`step-${s.num}`}
+                                className={`border-t border-[var(--line)] py-12 first:border-t-0 first:pt-0 sm:py-16 ${
+                                    i === activeStep ? '' : 'lg:opacity-60'
+                                } transition-opacity duration-500`}
+                            >
+                                <div className="flex items-baseline gap-5">
                                     <span
-                                        className="font-display text-5xl font-extrabold sm:text-6xl"
+                                        className="font-display text-4xl font-extrabold tabular-nums lg:hidden"
                                         style={{ color: s.accent }}
                                     >
                                         {s.num}
                                     </span>
-                                    <div className="mt-2">
-                                        <span className="rounded-full bg-[var(--surface-2)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--ink-faint)]">
-                                            Phase // {s.phase}
-                                        </span>
+                                    <div>
+                                        <h2 className="font-display text-3xl font-extrabold uppercase tracking-tight text-[var(--ink-strong)] sm:text-4xl">
+                                            {s.name}
+                                        </h2>
+                                        <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--ink-faint)]">
+                                            Phase — {s.phase}
+                                        </p>
                                     </div>
                                 </div>
 
-                                {/* Step Title, Subtitle, and Description */}
-                                <div className="lg:col-span-5">
-                                    <h2 className="font-display text-2xl font-extrabold uppercase text-[var(--ink-strong)] sm:text-3xl">
-                                        {s.name}
-                                    </h2>
-                                    <p className="mt-2 font-serif text-lg italic text-[var(--ink-faint)]">
-                                        {s.subtitle}
-                                    </p>
-                                    <p className="mt-4 text-sm leading-relaxed text-[var(--mute)] sm:text-base">
-                                        {s.desc}
-                                    </p>
-                                </div>
+                                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--mute)]">
+                                    {s.desc}
+                                </p>
 
-                                {/* Deliverables list */}
-                                <div className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-6 sm:p-8 lg:col-span-5">
-                                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--ink-faint)]">
-                                        Key Stage Deliverables
-                                    </p>
-                                    <ul className="mt-4 space-y-3 text-sm text-[var(--ink)]">
-                                        {s.deliverables.map((d) => (
-                                            <li key={d} className="flex items-center gap-3">
-                                                <span
-                                                    className="h-2 w-2 rounded-full flex-shrink-0"
-                                                    style={{ background: s.accent }}
-                                                    aria-hidden
-                                                />
-                                                <span>{d}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+                                <ul className="mt-8 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+                                    {s.deliverables.map((d) => (
+                                        <li key={d} className="flex items-start gap-3 text-sm leading-relaxed text-[var(--ink)]">
+                                            <span
+                                                className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full"
+                                                style={{ background: s.accent }}
+                                                aria-hidden
+                                            />
+                                            <span>{d}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </article>
+                        ))}
+                    </div>
                 </div>
             </section>
 
@@ -243,7 +301,7 @@ export default function Process() {
             <section className="bg-[var(--bg)] py-20 sm:py-32 border-t border-[var(--line)]">
                 <div className="container-x">
                     <div className="max-w-2xl">
-                        <SectionLabel index="05" name="COLLABORATION MODEL" />
+                        <SectionLabel index="02" name="COLLABORATION MODEL" />
                         <h2 className="display-lg mt-4 uppercase text-[var(--ink-strong)]">
                             How we partner.
                         </h2>
@@ -292,7 +350,6 @@ export default function Process() {
             {/* Single Conversion CTA */}
             <ConversionCTA
                 eyebrow="Initiate Stage 01"
-                headline="Let's build what's next."
                 description="Ready to begin with stakeholder discovery, strategy, and system architecture?"
             />
         </>

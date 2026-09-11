@@ -119,7 +119,7 @@ export default function Header() {
                 }`}
             >
                 <Logo url={url} />
-                <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+                <nav className="hidden items-center gap-3.5 xl:gap-6 2xl:gap-8 lg:flex" aria-label="Primary">
                     {LINKS.map((l) => {
                         const isServices = l.label === 'Services';
                         const active =
@@ -148,7 +148,7 @@ export default function Header() {
                                                 window.dispatchEvent(new CustomEvent('marketorr:preloader'));
                                             }
                                         }}
-                                        className={`link-underline btn-press group relative flex items-center gap-1.5 py-1 text-[13px] font-bold uppercase tracking-[0.18em] ${
+                                        className={`link-underline btn-press group relative flex items-center gap-1.5 py-1 text-[11px] xl:text-[13px] font-bold uppercase tracking-[0.12em] xl:tracking-[0.18em] ${
                                             active ? 'text-[var(--ink)]' : 'text-[var(--ink-faint)] hover:text-[var(--ink)]'
                                         }`}
                                     >
@@ -241,7 +241,7 @@ export default function Header() {
                                         window.dispatchEvent(new CustomEvent('marketorr:preloader'));
                                     }
                                 }}
-                                className={`link-underline btn-press group relative py-2 text-[13px] font-bold uppercase tracking-[0.18em] ${
+                                className={`link-underline btn-press group relative py-2 text-[11px] xl:text-[13px] font-bold uppercase tracking-[0.12em] xl:tracking-[0.18em] ${
                                     active ? 'text-[var(--ink)]' : 'text-[var(--ink-faint)] hover:text-[var(--ink)]'
                                 }`}
                             >
@@ -261,7 +261,12 @@ export default function Header() {
                             </Link>
                         );
                     })}
-                    <ThemeToggle />
+                    <div className="hidden xl:block">
+                        <ThemeToggle />
+                    </div>
+                    <div className="block xl:hidden">
+                        <ThemeToggle compact />
+                    </div>
                     <MagneticButton>
                         <Link
                             href="/contact"
@@ -271,7 +276,7 @@ export default function Header() {
                                 }
                             }}
                             data-cursor="cta"
-                            className="btn-press inline-flex items-center gap-2 rounded-full px-6 py-3 text-[12px] font-bold uppercase tracking-[0.16em] text-white"
+                            className="btn-press inline-flex items-center gap-1.5 xl:gap-2 rounded-full px-4 py-2.5 xl:px-6 xl:py-3 text-[11px] xl:text-[12px] font-bold uppercase tracking-[0.14em] xl:tracking-[0.16em] text-white whitespace-nowrap"
                             style={{ background: 'linear-gradient(90deg,#891FFB,#507AF4,#1BE2EB)' }}
                         >
                             Start a Project <span aria-hidden>↗</span>

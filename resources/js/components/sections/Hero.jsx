@@ -24,7 +24,7 @@ function HeroWorkComposition({ scrollProgress, reduce }) {
     return (
         <div className="relative mx-auto mt-12 w-full max-w-6xl px-2 sm:mt-16 sm:px-4">
             <div className="relative grid grid-cols-12 gap-3 sm:gap-6 items-center">
-                {/* 1. Left Card: Alarabi Fashion Monogram Specimen */}
+                {/* 1. Left Card: Alarabi Fashion Real Monogram Silk Fabric */}
                 <motion.div
                     style={reduce ? undefined : { y: yLeft }}
                     initial={{ opacity: 0, y: 24, scale: 0.98 }}
@@ -32,26 +32,28 @@ function HeroWorkComposition({ scrollProgress, reduce }) {
                     transition={{ duration: 0.5, delay: 0.35, ease: [...EASE] }}
                     className="col-span-12 sm:col-span-4 -rotate-1 transform rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-2 sm:p-3 shadow-xl transition-transform duration-300 hover:rotate-0 hover:scale-[1.02]"
                 >
-                    <div className="relative aspect-[16/11] overflow-hidden rounded-xl bg-[#140721]" data-cursor-theme="light">
-                        <img
-                            src="/images/projects/alarabi/hero.svg"
-                            alt="Alarabi Fashion Brand Monogram"
-                            className="h-full w-full object-cover"
-                            loading="eager"
-                        />
-                        <div className="absolute left-2.5 top-2.5">
-                            <span className="rounded-full bg-black/70 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.18em] text-[#d4af37] backdrop-blur-md">
-                                Identity · Alarabi
-                            </span>
+                    <Link href="/work/alarabi-fashion" data-cursor="view" className="block group">
+                        <div className="relative aspect-[16/11] overflow-hidden rounded-xl bg-[#140721]" data-cursor-theme="light">
+                            <img
+                                src="/images/projects/alarabi/real-showcase.webp"
+                                alt="Alarabi Fashion Brand Monogram"
+                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                loading="eager"
+                            />
+                            <div className="absolute left-2.5 top-2.5">
+                                <span className="rounded-full bg-black/70 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.18em] text-[#d4af37] backdrop-blur-md">
+                                    Identity · Alarabi
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                    <div className="flex items-center justify-between px-2 pt-2.5 text-[11px] font-semibold text-[var(--ink-faint)]">
-                        <span>AF Monogram &amp; Packaging</span>
-                        <span className="font-display font-bold text-[#891FFB]">01</span>
-                    </div>
+                        <div className="flex items-center justify-between px-2 pt-2.5 text-[11px] font-semibold text-[var(--ink-faint)]">
+                            <span className="group-hover:text-[var(--ink-strong)] transition-colors">AF Monogram &amp; Packaging</span>
+                            <span className="font-display font-bold text-[#891FFB]">01</span>
+                        </div>
+                    </Link>
                 </motion.div>
 
-                {/* 2. Center Dominant Card: City Online Web Platform */}
+                {/* 2. Center Dominant Card: Jute for Good Real Platform Showcase */}
                 <motion.div
                     style={motionStyle}
                     initial={{ opacity: 0, y: 28, scale: 0.97 }}
@@ -59,31 +61,33 @@ function HeroWorkComposition({ scrollProgress, reduce }) {
                     transition={{ duration: 0.55, delay: 0.25, ease: [...EASE] }}
                     className="col-span-12 sm:col-span-5 z-20 transform rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-2 sm:p-3 shadow-2xl transition-transform duration-300 hover:scale-[1.01]"
                 >
-                    <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-[#040d1a]" data-cursor-theme="light">
-                        <img
-                            src="/images/projects/city-online/hero.svg"
-                            alt="City Online ISP Web Platform & Portal"
-                            className="h-full w-full object-cover"
-                            loading="eager"
-                        />
-                        <div className="absolute left-3 top-3">
-                            <span className="rounded-full bg-black/70 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.18em] text-[#1be2eb] backdrop-blur-md">
-                                Platform UI · City Online
-                            </span>
+                    <Link href="/work/jute-for-good" data-cursor="view" className="block group">
+                        <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-[#040d1a]" data-cursor-theme="light">
+                            <img
+                                src="/images/projects/jute-for-good/real-showcase.webp"
+                                alt="Jute for Good B2B Export Platform"
+                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                loading="eager"
+                            />
+                            <div className="absolute left-3 top-3">
+                                <span className="rounded-full bg-black/70 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.18em] text-[#1be2eb] backdrop-blur-md">
+                                    Web Platform · Jute for Good
+                                </span>
+                            </div>
+                            <div className="absolute bottom-3 right-3">
+                                <span className="rounded-full bg-[#1be2eb] px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-black shadow-lg">
+                                    Case Study ↗
+                                </span>
+                            </div>
                         </div>
-                        <div className="absolute bottom-3 right-3">
-                            <span className="rounded-full bg-[#1be2eb] px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-black">
-                                Live Build ↗
-                            </span>
+                        <div className="flex items-center justify-between px-2 pt-2.5 text-[11px] font-semibold text-[var(--ink-faint)]">
+                            <span className="group-hover:text-[var(--ink-strong)] transition-colors">B2B Export Web Platform</span>
+                            <span className="font-display font-bold text-[#1BE2EB]">02</span>
                         </div>
-                    </div>
-                    <div className="flex items-center justify-between px-2 pt-2.5 text-[11px] font-semibold text-[var(--ink-faint)]">
-                        <span>Broadband Portal &amp; Web Platform</span>
-                        <span className="font-display font-bold text-[#1BE2EB]">02</span>
-                    </div>
+                    </Link>
                 </motion.div>
 
-                {/* 3. Right Card: Near to Nature & AnimateUIX */}
+                {/* 3. Right Card: AnimateUIX 3D Kinetic Motion System */}
                 <motion.div
                     style={reduce ? undefined : { y: yRight }}
                     initial={{ opacity: 0, y: 24, scale: 0.98 }}
@@ -91,23 +95,25 @@ function HeroWorkComposition({ scrollProgress, reduce }) {
                     transition={{ duration: 0.5, delay: 0.45, ease: [...EASE] }}
                     className="col-span-12 sm:col-span-3 rotate-1 transform rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-2 sm:p-3 shadow-xl transition-transform duration-300 hover:rotate-0 hover:scale-[1.02]"
                 >
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-[#0c0d14]" data-cursor-theme="light">
-                        <img
-                            src="/images/projects/animateuix/hero.svg"
-                            alt="AnimateUIX Motion Identity System"
-                            className="h-full w-full object-cover"
-                            loading="eager"
-                        />
-                        <div className="absolute left-2.5 top-2.5">
-                            <span className="rounded-full bg-black/70 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.18em] text-[#507af4] backdrop-blur-md">
-                                Motion · UIX
-                            </span>
+                    <Link href="/work/animateuix" data-cursor="view" className="block group">
+                        <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-[#0c0d14]" data-cursor-theme="light">
+                            <img
+                                src="/images/projects/animateuix/real-showcase.webp"
+                                alt="AnimateUIX Kinetic Motion System"
+                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                loading="eager"
+                            />
+                            <div className="absolute left-2.5 top-2.5">
+                                <span className="rounded-full bg-black/70 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.18em] text-[#507af4] backdrop-blur-md">
+                                    Motion · UIX
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                    <div className="flex items-center justify-between px-2 pt-2.5 text-[11px] font-semibold text-[var(--ink-faint)]">
-                        <span>Kinetic Design System</span>
-                        <span className="font-display font-bold text-[#507AF4]">03</span>
-                    </div>
+                        <div className="flex items-center justify-between px-2 pt-2.5 text-[11px] font-semibold text-[var(--ink-faint)]">
+                            <span className="group-hover:text-[var(--ink-strong)] transition-colors">Kinetic Motion System</span>
+                            <span className="font-display font-bold text-[#507AF4]">03</span>
+                        </div>
+                    </Link>
                 </motion.div>
             </div>
         </div>

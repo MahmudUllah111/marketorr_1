@@ -1,7 +1,12 @@
 import { Link } from '@inertiajs/react';
-import { SectionLabel, Tag } from '../ui/primitives';
+import { SectionLabel } from '../ui/primitives';
 import { SERVICES } from '../../data/services';
 
+/**
+ * The three disciplines read as full-width editorial rows rather than equal
+ * cards: the index and discipline name carry the scale, and the whole row is a
+ * single target so the hover state has one unambiguous meaning.
+ */
 export default function ServicesPreview() {
     return (
         <section id="services" className="relative bg-[var(--surface)] py-24 sm:py-32">
@@ -27,58 +32,83 @@ export default function ServicesPreview() {
                     We do not treat strategy, design, and code as separate silos. Every engagement is built with cohesive creative craft and technical precision.
                 </p>
 
-                {/* Three Core Disciplines Grid */}
-                <div className="mt-16 grid gap-8 lg:grid-cols-3">
+                <div className="mt-16 border-b border-[var(--line)]">
                     {SERVICES.map((s) => {
-                        const grad = s.accentTo
-                            ? `linear-gradient(90deg, ${s.accent}, ${s.accentTo})`
+                        const accentFill = s.accentTo
+                            ? `linear-gradient(135deg, ${s.accent}, ${s.accentTo})`
                             : s.accent;
 
                         return (
-                            <div
+                            <Link
                                 key={s.slug}
-                                className="group flex flex-col justify-between rounded-2xl border border-[var(--line)] bg-[var(--bg)] p-8 transition-all duration-300 hover:border-black/30 dark:hover:border-white/30 hover:shadow-xl"
+                                href={`/services/${s.slug}`}
+                                data-cursor="explore"
+                                className="group relative block border-t border-[var(--line)] py-10 transition-colors duration-300 hover:bg-[var(--bg)] sm:py-12 lg:pr-20"
                             >
-                                <div>
-                                    <div className="flex items-center justify-between">
-                                        <span className="font-display text-sm font-extrabold" style={{ color: s.accent }}>
+                                {/* Accent rule draws itself across the row on hover */}
+                                <span
+                                    className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100"
+                                    style={{
+                                        background: s.accentTo
+                                            ? `linear-gradient(90deg, ${s.accent}, ${s.accentTo})`
+                                            : s.accent,
+                                    }}
+                                    aria-hidden
+                                />
+
+                                <div className="grid gap-6 lg:grid-cols-12 lg:items-start lg:gap-10">
+                                    {/* Index shares a line with the arrow while stacked; at lg the
+                                        arrow parks against the row's right edge instead. */}
+                                    <div className="flex items-center justify-between lg:col-span-1 lg:block">
+                                        <span
+                                            className="font-display text-sm font-extrabold tabular-nums tracking-[0.1em]"
+                                            style={{ color: s.accent }}
+                                        >
                                             {s.index}
                                         </span>
-                                        <Link
-                                            href={`/services/${s.slug}`}
-                                            data-cursor="explore"
-                                            className="text-xs font-bold text-[var(--ink-faint)] group-hover:text-[var(--ink)]"
+
+                                        <span
+                                            className="relative inline-flex h-11 w-11 flex-shrink-0 items-center justify-center overflow-hidden rounded-full border border-[var(--field-line)] text-[var(--ink)] transition-colors duration-300 group-hover:border-transparent group-hover:text-white lg:absolute lg:right-0 lg:top-12"
+                                            aria-hidden
                                         >
-                                            ↗
-                                        </Link>
+                                            <span
+                                                className="absolute inset-0 origin-bottom scale-y-0 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-y-100"
+                                                style={{ background: accentFill }}
+                                            />
+                                            <span className="relative transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
+                                                ↗
+                                            </span>
+                                        </span>
                                     </div>
-                                    <h3 className="mt-5 font-display text-2xl font-extrabold uppercase text-[var(--ink-strong)]">
-                                        {s.name}
-                                    </h3>
-                                    <p className="mt-3 text-sm leading-relaxed text-[var(--mute)]">
-                                        {s.short || s.description}
-                                    </p>
 
-                                    <div className="mt-6 flex flex-wrap gap-1.5">
-                                        {s.capabilities.slice(0, 4).map((c) => (
-                                            <Tag key={c} accent={s.accent}>
-                                                {c}
-                                            </Tag>
-                                        ))}
+                                    <div className="lg:col-span-5">
+                                        <h3 className="font-display text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-[var(--ink-strong)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:text-5xl lg:group-hover:translate-x-2">
+                                            {s.name}
+                                        </h3>
+                                        <p className="mt-4 max-w-md text-sm leading-relaxed text-[var(--mute)] sm:text-base">
+                                            {s.short || s.description}
+                                        </p>
+                                    </div>
+
+                                    <div className="lg:col-span-5">
+                                        <ul className="grid gap-x-8 gap-y-2 sm:grid-cols-2">
+                                            {s.capabilities.slice(0, 6).map((c) => (
+                                                <li
+                                                    key={c}
+                                                    className="flex items-start gap-2.5 text-[13px] leading-relaxed text-[var(--ink-faint)] transition-colors duration-300 group-hover:text-[var(--ink)]"
+                                                >
+                                                    <span
+                                                        className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full"
+                                                        style={{ background: s.accent }}
+                                                        aria-hidden
+                                                    />
+                                                    {c}
+                                                </li>
+                                            ))}
+                                        </ul>
                                     </div>
                                 </div>
-
-                                <div className="mt-8 border-t border-[var(--line-soft)] pt-6">
-                                    <Link
-                                        href={`/services/${s.slug}`}
-                                        data-cursor="explore"
-                                        className="btn-press inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[12px] font-bold uppercase tracking-[0.14em] text-white"
-                                        style={{ background: grad }}
-                                    >
-                                        Explore {s.name.split(' ')[0]} ↗
-                                    </Link>
-                                </div>
-                            </div>
+                            </Link>
                         );
                     })}
                 </div>

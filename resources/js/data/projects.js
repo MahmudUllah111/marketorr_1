@@ -6,7 +6,7 @@ export const PROJECTS = [
         disciplines: ['Brand Strategy', 'Visual Identity', 'Packaging', 'Brand Collateral'],
         year: '2024',
         status: 'Delivered',
-        heroImage: '/images/projects/alarabi/hero.svg',
+        heroImage: '/images/projects/alarabi/real-showcase.webp',
         summary:
             'A comprehensive brand identity system for an export-oriented knitwear and apparel trading company, combining textile heritage with international corporate refinement.',
         accent: '#891FFB',
@@ -37,6 +37,32 @@ export const PROJECTS = [
             'Standardized packaging guidelines adopted for export shipments',
         ],
         technology: ['Adobe Illustrator', 'Figma', 'Vector Identity Suite'],
+        gallery: [
+            {
+                src: '/images/projects/alarabi/real-detail-6.webp',
+                caption: 'Authentic typographic corporate lockup on deep violet silk drapery',
+                aspect: 'landscape',
+                label: 'Corporate Brand Lockup',
+            },
+            {
+                src: '/images/projects/alarabi/real-detail-4.webp',
+                caption: 'Die-cut presentation folder and gold-foiled membership identity card',
+                aspect: 'portrait',
+                label: 'Corporate Collateral',
+            },
+            {
+                src: '/images/projects/alarabi/real-detail-5.webp',
+                caption: 'Branded packaging and luxury woven garment tag architecture',
+                aspect: 'landscape',
+                label: 'Packaging System',
+            },
+            {
+                src: '/images/projects/alarabi/hero.svg',
+                caption: 'Geometric AF monogram formulation and vector balance curves',
+                aspect: 'square',
+                label: 'Vector Monogram Blueprint',
+            },
+        ],
     },
     {
         slug: 'animateuix',
@@ -45,7 +71,7 @@ export const PROJECTS = [
         disciplines: ['Brand Design', 'Motion Design', 'UI/UX', 'Web Presence'],
         year: '2024',
         status: 'Delivered',
-        heroImage: '/images/projects/animateuix/hero.svg',
+        heroImage: '/images/projects/animateuix/real-showcase.webp',
         summary:
             'A motion-first visual identity and digital platform structured around UI animation curves, dynamic keyframe mechanics, and interactive Lottie asset workflows.',
         accent: '#507AF4',
@@ -75,6 +101,32 @@ export const PROJECTS = [
             'Created an effortless interactive platform for digital animators',
         ],
         technology: ['Figma', 'Lottie / After Effects', 'React', 'Tailwind CSS'],
+        gallery: [
+            {
+                src: '/images/projects/animateuix/real-detail-4.webp',
+                caption: 'Physical architectural illuminated corner signage for the creative studio',
+                aspect: 'landscape',
+                label: 'Environmental Signage',
+            },
+            {
+                src: '/images/projects/animateuix/real-detail-6.webp',
+                caption: 'Tactile identity card specimen on raw concrete with natural light shadows',
+                aspect: 'portrait',
+                label: 'Tactile Identity Card',
+            },
+            {
+                src: '/images/projects/animateuix/real-detail-5.webp',
+                caption: 'Motion brand identity tokens and keyframe mechanical specifications',
+                aspect: 'landscape',
+                label: 'Design System Tokens',
+            },
+            {
+                src: '/images/projects/animateuix/hero.svg',
+                caption: 'Velocity curve parameters and interactive keyframe engine interface',
+                aspect: 'square',
+                label: 'UI Motion Engine',
+            },
+        ],
     },
     {
         slug: 'near-to-nature',
@@ -83,7 +135,7 @@ export const PROJECTS = [
         disciplines: ['Brand Identity', 'Packaging Design', 'Sustainable Collateral'],
         year: '2023',
         status: 'Delivered',
-        heroImage: '/images/projects/near-to-nature/hero.svg',
+        heroImage: '/images/projects/near-to-nature/real-showcase.webp',
         summary:
             'Organic brand identity and eco-conscious packaging design for an agricultural venture promoting sustainable farming and natural produce.',
         accent: '#2EB872',
@@ -113,6 +165,32 @@ export const PROJECTS = [
             'Unified packaging system implemented across all seasonal crops',
         ],
         technology: ['Vector Identity System', 'Print Pre-press Specs', 'Adobe Creative Suite'],
+        gallery: [
+            {
+                src: '/images/projects/near-to-nature/real-detail-6.webp',
+                caption: 'Authentic printed cotton tote bag with cast environmental sunlight and shadows',
+                aspect: 'landscape',
+                label: 'Eco Cotton Packaging',
+            },
+            {
+                src: '/images/projects/near-to-nature/real-detail-4.webp',
+                caption: 'Artisan retail preserve jars with biodegradable kraft wrap labels',
+                aspect: 'portrait',
+                label: 'Retail Goods Packaging',
+            },
+            {
+                src: '/images/projects/near-to-nature/real-detail-5.webp',
+                caption: 'Sustainable tote bag and merchandise packaging system mockup',
+                aspect: 'landscape',
+                label: 'Merchandise System',
+            },
+            {
+                src: '/images/projects/near-to-nature/hero.svg',
+                caption: 'Botanical leaf circular seal formulation and organic typography',
+                aspect: 'square',
+                label: 'Seal Construction',
+            },
+        ],
     },
     {
         slug: 'city-online',
@@ -121,7 +199,7 @@ export const PROJECTS = [
         disciplines: ['Brand Identity', 'UI/UX Design', 'Web Development'],
         year: '2024',
         status: 'Delivered',
-        heroImage: '/images/projects/city-online/hero.svg',
+        heroImage: '/images/projects/city-online/real-showcase.webp',
         summary:
             'Complete brand identity refresh, self-service customer portal UI/UX, and responsive website development for a nationwide Internet Service Provider.',
         accent: '#1BE2EB',
@@ -151,6 +229,20 @@ export const PROJECTS = [
             'Modernized technical brand image matching enterprise expectations',
         ],
         technology: ['Figma', 'Modern Web Stack', 'Responsive CSS', 'REST APIs'],
+        gallery: [
+            {
+                src: '/images/projects/city-online/hero.svg',
+                caption: 'Subscriber bandwidth selection and customer self-service portal interface',
+                aspect: 'landscape',
+                label: 'Customer Portal UI',
+            },
+            {
+                src: '/images/projects/city-online/real-showcase.webp',
+                caption: 'Geometric tech logomark constructed on dark precision coordinate grid',
+                aspect: 'landscape',
+                label: 'Brand Logomark System',
+            },
+        ],
     },
     {
         slug: 'jute-for-good',
@@ -159,7 +251,7 @@ export const PROJECTS = [
         disciplines: ['Digital Platform', 'Web Design & Development', 'Product Catalog'],
         year: '2023',
         status: 'Delivered',
-        heroImage: '/images/projects/jute-for-good/hero.svg',
+        heroImage: '/images/projects/jute-for-good/real-showcase.webp',
         summary:
             'Digital export showcase and structured product catalog for a manufacturer and exporter of diversified eco-friendly natural jute products.',
         accent: '#D4A359',
@@ -169,10 +261,15 @@ export const PROJECTS = [
         scopeStatus: 'needs-verification',
         verificationStatus: 'partially-verified',
         sourceUrl: 'https://marketorr.com.bd',
+        industry: 'Eco-Friendly Manufacturing & Export',
         challenge:
             'Presenting traditional biodegradable fiber products to international B2B buyers with contemporary digital polish and clear technical specifications.',
         approach:
             'Built a clean catalog structure with material specifications, sustainability certifications, and direct RFQ (request for quotation) contact integration.',
+        experience:
+            'Responsive multi-device web experience featuring interactive product filtering, high-resolution material spreads, and instant quotation requests.',
+        result:
+            'Enhanced international buyer exploration experience and structured digital catalog deployed for global textile and home goods trade.',
         deliverables: [
             'Digital Product Catalog Architecture',
             'Responsive Website UI/UX',
@@ -184,6 +281,26 @@ export const PROJECTS = [
             'Structured digital catalog of diversified jute products',
         ],
         technology: ['UI Design System', 'Responsive Frontend', 'Product Catalog Schema'],
+        gallery: [
+            {
+                src: '/images/projects/jute-for-good/real-detail-5.webp',
+                caption: 'Full-bleed isometric multi-screen web platform spread and product catalog',
+                aspect: 'landscape',
+                label: 'Web Platform Architecture',
+            },
+            {
+                src: '/images/projects/jute-for-good/real-detail-4.webp',
+                caption: 'Responsive desktop and mobile perspective platform layouts',
+                aspect: 'portrait',
+                label: 'Responsive Experience',
+            },
+            {
+                src: '/images/projects/jute-for-good/hero.svg',
+                caption: 'Structured product catalog schema and instant RFQ order flow',
+                aspect: 'landscape',
+                label: 'B2B Catalog Engine',
+            },
+        ],
     },
     {
         slug: 'virgin-trend',
@@ -192,7 +309,7 @@ export const PROJECTS = [
         disciplines: ['Brand Identity', 'Corporate Collateral', 'Sourcing Presentation'],
         year: '2023',
         status: 'Delivered',
-        heroImage: '/images/projects/virgin-trend/hero.svg',
+        heroImage: '/images/projects/virgin-trend/real-showcase.webp',
         summary:
             'Corporate brand identity system and global partner presentation collateral for an apparel sourcing and supply chain management agency.',
         accent: '#891FFB',
@@ -201,10 +318,15 @@ export const PROJECTS = [
         services: ['branding'],
         verificationStatus: 'partially-verified',
         sourceUrl: 'https://marketorr.com.bd',
+        industry: 'Global Apparel Sourcing & Supply Chain',
         challenge:
             'Creating an executive brand presence suited for international fashion brand buyers and global garment manufacturers.',
         approach:
             'Developed a clean, geometric wordmark and corporate identity suite designed to bring authority to contracts, proposals, and international textile summits.',
+        experience:
+            'Sophisticated high-contrast editorial lookbooks, corporate stationery suites, and executive proposal decks for global trade summits.',
+        result:
+            'Consistent corporate identity applied across business development collateral and international retail partnerships.',
         deliverables: [
             'Corporate Identity System',
             'Executive Profile & Deck',
@@ -214,6 +336,26 @@ export const PROJECTS = [
             'Consistent corporate identity applied across business development collateral',
         ],
         technology: ['Adobe Illustrator', 'InDesign', 'Brand Guidelines'],
+        gallery: [
+            {
+                src: '/images/projects/virgin-trend/real-detail-4.webp',
+                caption: 'High-fashion editorial campaign lookbook triptych layout',
+                aspect: 'landscape',
+                label: 'Editorial Lookbook',
+            },
+            {
+                src: '/images/projects/virgin-trend/real-detail-5.webp',
+                caption: 'Corporate stationery suite, executive presentation deck, and typography',
+                aspect: 'landscape',
+                label: 'Executive Stationery',
+            },
+            {
+                src: '/images/projects/virgin-trend/hero.svg',
+                caption: 'Geometric VT corporate monogram formulation and precision proportions',
+                aspect: 'square',
+                label: 'Monogram Construction',
+            },
+        ],
     },
 ];
 

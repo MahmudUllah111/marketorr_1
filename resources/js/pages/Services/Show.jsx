@@ -210,7 +210,7 @@ export default function ServicePage({ slug }) {
                                 >
                                     <div className="relative aspect-[16/10] overflow-hidden bg-[#0a0410]" data-cursor-theme="light">
                                         <img
-                                            src="/images/projects/alarabi/hero.svg"
+                                            src="/images/projects/alarabi/real-showcase.webp"
                                             alt="Alarabi Fashion Brand Identity"
                                             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                                             loading="lazy"
@@ -252,7 +252,7 @@ export default function ServicePage({ slug }) {
                                 >
                                     <div className="relative aspect-[16/10] overflow-hidden bg-[#07130c]" data-cursor-theme="light">
                                         <img
-                                            src="/images/projects/near-to-nature/hero.svg"
+                                            src="/images/projects/near-to-nature/real-showcase.webp"
                                             alt="Near to Nature Sustainable Identity"
                                             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                                             loading="lazy"
@@ -356,7 +356,8 @@ export default function ServicePage({ slug }) {
                     {/* Dedicated Branding Closing CTA */}
                     <ConversionCTA
                         eyebrow="Identity Commission"
-                        headline="Build a brand people remember."
+                        headline="Build a brand"
+                        accent="people remember."
                         description="Partner with Marketorr to build a strategic, recognition-first visual identity system that scales."
                     />
                 </>
@@ -620,7 +621,7 @@ export default function ServicePage({ slug }) {
                                 >
                                     <div className="relative aspect-[16/10] overflow-hidden bg-[#060814]" data-cursor-theme="light">
                                         <img
-                                            src="/images/projects/animateuix/hero.svg"
+                                            src="/images/projects/animateuix/real-showcase.webp"
                                             alt="AnimateUIX Motion UI/UX"
                                             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                                             loading="lazy"
@@ -662,7 +663,7 @@ export default function ServicePage({ slug }) {
                                 >
                                     <div className="relative aspect-[16/10] overflow-hidden bg-[#040e14]" data-cursor-theme="light">
                                         <img
-                                            src="/images/projects/city-online/hero.svg"
+                                            src="/images/projects/city-online/real-showcase.webp"
                                             alt="City Online Limited Customer Portal"
                                             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                                             loading="lazy"
@@ -702,7 +703,8 @@ export default function ServicePage({ slug }) {
                     {/* Dedicated UI/UX Closing CTA */}
                     <ConversionCTA
                         eyebrow="Experience Commission"
-                        headline="Interfaces that users remember."
+                        headline="Interfaces that"
+                        accent="users remember."
                         description="Let's craft high-clarity software, web applications, or mobile products engineered for retention."
                     />
                 </>
@@ -850,7 +852,7 @@ export default function ServicePage({ slug }) {
                                 >
                                     <div className="relative aspect-[16/10] overflow-hidden bg-[#040e14]" data-cursor-theme="light">
                                         <img
-                                            src="/images/projects/city-online/hero.svg"
+                                            src="/images/projects/city-online/real-showcase.webp"
                                             alt="City Online Web Development"
                                             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                                             loading="lazy"
@@ -891,7 +893,7 @@ export default function ServicePage({ slug }) {
                                 >
                                     <div className="relative aspect-[16/10] overflow-hidden bg-[#141006]" data-cursor-theme="light">
                                         <img
-                                            src="/images/projects/jute-for-good/hero.svg"
+                                            src="/images/projects/jute-for-good/real-showcase.webp"
                                             alt="Jute for Good Export Platform"
                                             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                                             loading="lazy"
@@ -931,7 +933,8 @@ export default function ServicePage({ slug }) {
                     {/* Dedicated Development Closing CTA */}
                     <ConversionCTA
                         eyebrow="Engineering Commission"
-                        headline="Code engineered for what's next."
+                        headline="Code engineered"
+                        accent="for what's next."
                         description="Partner with Marketorr to engineer high-speed websites, custom software, and robust web applications."
                     />
                 </>

@@ -51,7 +51,7 @@ export default function WorkIndex() {
             {/* Hero Section */}
             <section className="bg-[var(--bg)] pt-12 pb-16 sm:pt-16 sm:pb-24">
                 <div className="container-x">
-                    <SectionLabel index="03" name="PORTFOLIO ARCHIVE" />
+                    <SectionLabel index="01" name="PORTFOLIO ARCHIVE" />
 
                     <div className="mt-8 max-w-4xl">
                         <RevealText
@@ -262,7 +262,6 @@ export default function WorkIndex() {
             {/* Single Conversion CTA */}
             <ConversionCTA
                 eyebrow="Commission a Case Study"
-                headline="Let's build what's next."
                 description="Partner with Marketorr to engineer an unmistakable visual identity, digital product, or web platform."
             />
         </>

@@ -2,6 +2,7 @@ import { Head, Link } from '@inertiajs/react';
 import { getProjectBySlug, PROJECTS } from '../../data/projects';
 import { SectionLabel, Tag } from '../../components/ui/primitives';
 import ConversionCTA from '../../components/sections/ConversionCTA';
+import { serviceLabel } from '../../lib/services';
 
 export default function CaseStudy({ slug }) {
     const p = getProjectBySlug(slug) ?? PROJECTS[0];
@@ -20,7 +21,7 @@ export default function CaseStudy({ slug }) {
             <article className="bg-[var(--bg)] pt-12 pb-16 sm:pt-16 sm:pb-24">
                 <div className="container-x">
                     <div className="flex flex-wrap items-center justify-between gap-4">
-                        <SectionLabel index="03" name="CASE STUDY" />
+                        <SectionLabel name="CASE STUDY" />
                         {isConcept && (
                             <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-amber-300">
                                 Studio concept — exploratory design
@@ -56,7 +57,7 @@ export default function CaseStudy({ slug }) {
                         </div>
                         <div>
                             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--ink-faint)]">Services</p>
-                            <p className="mt-1.5 font-display text-sm sm:text-base font-bold text-[var(--ink-strong)]">{p.services?.join(', ') || 'Branding & UI/UX'}</p>
+                            <p className="mt-1.5 font-display text-sm sm:text-base font-bold text-[var(--ink-strong)]">{p.services?.map(serviceLabel).join(', ') || 'Branding & UI/UX'}</p>
                         </div>
                     </div>
 
@@ -192,6 +193,74 @@ export default function CaseStudy({ slug }) {
             </section>
 
             {/* =========================================================================
+                AUTHENTIC DELIVERABLES & PHYSICAL TOUCHPOINTS GALLERY
+               ========================================================================= */}
+            {p.gallery && p.gallery.length > 0 && (
+                <section id="artifacts" className="bg-[var(--surface-2)] py-20 sm:py-28 border-b border-[var(--line)]">
+                    <div className="container-x">
+                        <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+                            <div>
+                                <span className="font-display text-xs font-bold uppercase tracking-widest text-gradient">
+                                    Delivered Artifacts //
+                                </span>
+                                <h2 className="display-md mt-2 uppercase text-[var(--ink-strong)]">
+                                    Production Touchpoints.
+                                </h2>
+                            </div>
+                            <p className="max-w-md text-sm text-[var(--mute)]">
+                                Tangible physical collateral, digital design tokens, and live production environments deployed for {p.client}.
+                            </p>
+                        </div>
+
+                        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:gap-10">
+                            {p.gallery.map((item, idx) => {
+                                const isFullWidth = idx === 0 && p.gallery.length % 2 !== 0;
+                                return (
+                                    <div
+                                        key={item.src + idx}
+                                        className={`group overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--surface)] p-3 sm:p-4 shadow-xl transition-all duration-300 hover:shadow-2xl ${
+                                            isFullWidth ? 'sm:col-span-2' : ''
+                                        }`}
+                                    >
+                                        <div
+                                            className={`relative overflow-hidden rounded-2xl bg-black ${
+                                                isFullWidth
+                                                    ? 'aspect-[16/9] sm:aspect-[21/9]'
+                                                    : item.aspect === 'portrait'
+                                                    ? 'aspect-[4/5]'
+                                                    : item.aspect === 'square'
+                                                    ? 'aspect-square'
+                                                    : 'aspect-[16/10]'
+                                            }`}
+                                            data-cursor-theme="light"
+                                        >
+                                            <img
+                                                src={item.src}
+                                                alt={item.caption}
+                                                className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                                                loading="lazy"
+                                            />
+                                            {item.label && (
+                                                <div className="absolute left-4 top-4">
+                                                    <span className="rounded-full bg-black/70 px-3.5 py-1 font-display text-[10px] font-bold uppercase tracking-[0.18em] text-white/90 backdrop-blur-md">
+                                                        {item.label}
+                                                    </span>
+                                                </div>
+                                            )}
+                                        </div>
+                                        <div className="flex items-center justify-between px-3 py-3 text-xs text-[var(--mute)]">
+                                            <span className="font-serif italic text-sm text-[var(--ink)]">{item.caption}</span>
+                                            <span className="font-display text-[11px] font-bold text-[var(--ink-faint)]">0{idx + 1}</span>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {/* =========================================================================
                 04 / RESULT
                ========================================================================= */}
             <section className="bg-[var(--surface)] py-20 sm:py-28 border-b border-[var(--line)]">
@@ -280,7 +349,6 @@ export default function CaseStudy({ slug }) {
                ========================================================================= */}
             <ConversionCTA
                 eyebrow="Commission Your Project"
-                headline="Let's build what's next."
                 description="Ready to elevate your brand identity, user interface, or digital engineering platform?"
             />
         </>

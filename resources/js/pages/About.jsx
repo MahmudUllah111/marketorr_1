@@ -6,30 +6,27 @@ import { COMPANY } from '../data/company';
 import { PROJECTS } from '../data/projects';
 
 export default function About() {
-    const coreDisciplines = [
+    const disciplineRoles = [
         {
             num: '01',
-            title: 'Strategy',
-            desc: 'Commercial positioning, market differentiation, audience research, and brand narrative foundations.',
+            title: 'Branding & Identity',
+            desc: 'Commercial positioning, audience research, and brand narrative resolved into a visual identity system — monograms, typographic hierarchy, colour, and packaging architecture.',
+            href: '/services/branding',
             accent: '#891FFB',
         },
         {
             num: '02',
-            title: 'Branding',
-            desc: 'Visual identity systems, monograms, typographic hierarchies, color systems, and packaging architecture.',
+            title: 'UI/UX Design',
+            desc: 'Information architecture, responsive web products, mobile applications, design systems, and prototypes built from the positioning rather than alongside it.',
+            href: '/services/ui-ux',
             accent: '#507AF4',
         },
         {
             num: '03',
-            title: 'UI/UX',
-            desc: 'Information architecture, responsive web products, mobile applications, design systems, and prototypes.',
-            accent: '#1BE2EB',
-        },
-        {
-            num: '04',
             title: 'Development',
-            desc: 'Modern full-stack engineering, production Laravel & React platforms, low latency, and maintainability.',
-            accent: '#891FFB',
+            desc: 'Modern full-stack engineering on production Laravel and React platforms, carrying the same identity and interface decisions through to shipped code.',
+            href: '/services/development',
+            accent: '#1BE2EB',
         },
     ];
 
@@ -103,50 +100,61 @@ export default function About() {
                 </div>
             </section>
 
-            {/* 02 Core Disciplines */}
+            {/* 02 How the three disciplines connect — asymmetric statement + ruled entries */}
             <section className="bg-[var(--surface)] py-24 sm:py-32 border-t border-[var(--line)]">
-                <div className="container-x">
-                    <div className="max-w-2xl">
-                        <span className="text-[11px] font-bold uppercase tracking-[0.24em] text-gradient">
-                            Core Disciplines
-                        </span>
-                        <h2 className="display-lg mt-3 uppercase text-[var(--ink-strong)]">
-                            Four connected capabilities.
-                        </h2>
-                        <p className="mt-4 text-base text-[var(--mute)]">
-                            We don't separate design from engineering. Every engagement benefits from interconnected thinking across all four pillars.
-                        </p>
+                <div className="container-x grid gap-12 lg:grid-cols-12 lg:gap-16">
+                    <div className="lg:col-span-5">
+                        <div className="lg:sticky lg:top-[140px]">
+                            <SectionLabel index="02" name="CORE DISCIPLINES" />
+                            <h2 className="display-lg mt-6 uppercase text-[var(--ink-strong)]">
+                                Three disciplines. <span className="text-gradient">One team.</span>
+                            </h2>
+                            <p className="mt-6 max-w-md text-base leading-relaxed text-[var(--mute)]">
+                                We don't separate design from engineering. The same people carry a project from positioning through interface design into production code, so nothing is lost in a handover between agencies.
+                            </p>
+                        </div>
                     </div>
 
-                    <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                        {coreDisciplines.map((d) => (
-                            <div
+                    <div className="lg:col-span-7">
+                        {disciplineRoles.map((d) => (
+                            <Link
                                 key={d.title}
-                                className="flex flex-col justify-between rounded-2xl border border-[var(--line)] bg-[var(--bg)] p-8 transition-colors hover:border-black/30 dark:hover:border-white/30"
+                                href={d.href}
+                                data-cursor="explore"
+                                className="group block border-t border-[var(--line)] py-10 last:border-b last:border-[var(--line)] transition-colors duration-300 hover:bg-[var(--bg)] px-2 sm:px-4 -mx-2 sm:-mx-4 rounded-xl"
                             >
-                                <div>
-                                    <span className="font-display text-base font-extrabold" style={{ color: d.accent }}>
-                                        {d.num} //
+                                <div className="flex items-baseline gap-5">
+                                    <span
+                                        className="font-display text-sm font-extrabold tabular-nums tracking-[0.1em]"
+                                        style={{ color: d.accent }}
+                                    >
+                                        {d.num}
                                     </span>
-                                    <h3 className="mt-4 font-display text-2xl font-extrabold uppercase text-[var(--ink-strong)]">
+                                    <h3 className="font-display text-2xl font-extrabold uppercase tracking-tight text-[var(--ink-strong)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:text-3xl lg:group-hover:translate-x-1.5">
                                         {d.title}
                                     </h3>
-                                    <p className="mt-3 text-sm leading-relaxed text-[var(--mute)]">
-                                        {d.desc}
-                                    </p>
+                                    <span
+                                        aria-hidden
+                                        className="ml-auto text-[var(--ink-faint)] transition-all duration-300 group-hover:text-[var(--ink)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                                    >
+                                        ↗
+                                    </span>
                                 </div>
-                            </div>
+                                <p className="mt-4 max-w-xl pl-0 text-sm leading-relaxed text-[var(--mute)] sm:pl-10 sm:text-base">
+                                    {d.desc}
+                                </p>
+                            </Link>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* 03 Principles Section: CLARITY, CRAFT, INTUITION, PERFORMANCE */}
+            {/* 03 Principles — oversized numbered entries, deliberately unlike the section above */}
             <section className="bg-[var(--bg)] py-24 sm:py-32 border-t border-[var(--line)]">
                 <div className="container-x">
                     <div className="max-w-2xl">
-                        <SectionLabel index="02" name="FOUNDATIONAL PRINCIPLES" />
-                        <h2 className="display-lg mt-4 uppercase text-[var(--ink-strong)]">
+                        <SectionLabel index="03" name="FOUNDATIONAL PRINCIPLES" />
+                        <h2 className="display-lg mt-6 uppercase text-[var(--ink-strong)]">
                             How we think &amp; build.
                         </h2>
                         <p className="mt-4 text-base text-[var(--mute)]">
@@ -154,18 +162,22 @@ export default function About() {
                         </p>
                     </div>
 
-                    <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                        {principles.map((pr) => (
-                            <div
-                                key={pr.title}
-                                className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-8 flex flex-col justify-between"
-                            >
+                    <div className="mt-16 grid gap-x-16 gap-y-14 sm:grid-cols-2">
+                        {principles.map((pr, i) => (
+                            <div key={pr.title} className="group flex flex-col justify-between">
                                 <div>
-                                    <h3 className="font-display text-2xl font-extrabold uppercase text-[var(--ink-strong)]">
+                                    <span
+                                        className="font-display text-4xl sm:text-5xl font-extrabold leading-none tabular-nums opacity-30 block"
+                                        style={{ color: pr.accent }}
+                                        aria-hidden
+                                    >
+                                        {String(i + 1).padStart(2, '0')}
+                                    </span>
+                                    <h3 className="mt-3 font-display text-2xl font-extrabold uppercase tracking-tight text-[var(--ink-strong)] sm:text-3xl">
                                         {pr.title}
                                     </h3>
-                                    <div className="mt-3 h-[2px] w-8" style={{ background: pr.accent }} />
-                                    <p className="mt-4 text-sm leading-relaxed text-[var(--mute)]">
+                                    <div className="mt-4 h-[2px] w-10" style={{ background: pr.accent }} aria-hidden />
+                                    <p className="mt-4 max-w-md text-sm leading-relaxed text-[var(--mute)] sm:text-base">
                                         {pr.summary}
                                     </p>
                                 </div>
@@ -180,7 +192,7 @@ export default function About() {
                 <div className="container-x">
                     <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
                         <div>
-                            <SectionLabel index="03" name="VERIFIED WORK" />
+                            <SectionLabel index="04" name="VERIFIED WORK" />
                             <h2 className="display-lg mt-4 uppercase text-[var(--ink-strong)]">
                                 Proof of craft.
                             </h2>
@@ -201,7 +213,7 @@ export default function About() {
                                 data-cursor="view"
                                 className="group btn-press block overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--bg)] transition-all duration-300 hover:border-black/30 dark:hover:border-white/30 hover:shadow-xl"
                             >
-                                <div className="relative aspect-[16/10] overflow-hidden bg-black">
+                                <div className="relative aspect-[16/10] overflow-hidden bg-black" data-cursor-theme="light">
                                     <img
                                         src={p.heroImage}
                                         alt={`${p.title} — ${p.client}`}
@@ -234,7 +246,6 @@ export default function About() {
             {/* Single Conversion CTA */}
             <ConversionCTA
                 eyebrow="Start a Dialogue"
-                headline="Let's build what's next."
                 description="Share your brand vision, digital product goals, or web engineering scope with our studio team."
             />
         </>

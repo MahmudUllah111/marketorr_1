@@ -4,7 +4,7 @@ export function SectionLabel({ index, name }) {
     return (
         <div className="flex items-center gap-4">
             <span className="font-display text-[12px] font-bold tracking-[0.22em] text-[var(--ink-faint)]">
-                {index} / {name}
+                {index ? `${index} / ${name}` : name}
             </span>
             <span className="h-[2px] w-16 overflow-hidden rounded-full bg-[var(--line)]" aria-hidden>
                 <span className="block h-full w-full origin-left bg-brand" />
